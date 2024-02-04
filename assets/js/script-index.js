@@ -1,6 +1,5 @@
 const todo = document.getElementById("todo");
 const addBtn = document.getElementById("add-btn");
-const modalEdit = document.getElementById("modal-edit");
 const modalDelete = document.getElementById("modal-delete");
 
 // Fetching data-task.json when page loaded
@@ -31,6 +30,9 @@ window.onload = () => {
       for (let i = 0; i < data.length; i++) {
         const article = document.createElement("article");
         article.setAttribute("class", "w-25 p-3 mt-2");
+        // Create img element
+        const elementimg = document.createElement("img");
+        elementimg.innerHTML = data[i].img;
         // Create h4 element
         const elementH4 = document.createElement("h4"); // <h4></h4>
         elementH4.innerHTML = data[i].title; // <h4>Judul 2</h5>
@@ -48,7 +50,7 @@ window.onload = () => {
         deleteBtn.setAttribute("data-bs-toggle", "modal");
         deleteBtn.setAttribute("data-bs-target", "#modal-delete");
 
-        // Create edit button
+        // Create link button
         const editBtn = document.createElement("button");
         editBtn.innerHTML = "Link";
         editBtn.setAttribute(
@@ -56,8 +58,7 @@ window.onload = () => {
           "bg-info rounded-5 px-3 py-1 border-0 text-white me-1"
         );
         editBtn.setAttribute("id", data[i].id);
-        editBtn.setAttribute("data-bs-toggle", "modal");
-        editBtn.setAttribute("data-bs-target", "#modal-edit");
+        
 
         article.appendChild(elementH4);
         article.appendChild(elementP);
@@ -96,34 +97,6 @@ addBtn.addEventListener("click", (event) => {
   window.location.reload();
 });
 
-modalEdit.addEventListener("show.bs.modal", (event) => {
-  const oldTitle = document.getElementById("edit-form-title");
-  const oldDescription = document.getElementById("edit-form-description");
-
-  const dataString = localStorage.getItem("data");
-  const data = JSON.parse(dataString);
-
-  const id = event.relatedTarget["id"];
-  const currentIdx = data.findIndex((item) => item.id === Number(id));
-
-  // Assign old data to input value
-  oldTitle.value = data[currentIdx].title;
-  oldDescription.value = data[currentIdx].description;
-
-  // Update data
-  const editBtn = document.getElementById("edit-btn");
-  editBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    // Update data
-    data[currentIdx].title = oldTitle.value;
-    data[currentIdx].description = oldDescription.value;
-
-    // Set data to local storage
-    localStorage.setItem("data", JSON.stringify(data));
-    window.location.reload();
-  });
-});
 
 modalDelete.addEventListener("show.bs.modal", (event) => {
   const oldTitle = document.getElementById("delete-form-title");
@@ -152,17 +125,3 @@ modalDelete.addEventListener("show.bs.modal", (event) => {
     window.location.reload();
   });
 });
-
-function allowDrop(event) {
-  event.preventDefault();
-}
-
-function drag(event) {
-  event.dataTransfer.setData("article", event.target.id);
-}
-
-function drop(event) {
-  event.preventDefault();
-  const data = event.dataTransfer.getData("article");
-  event.target.appendChild(document.getElementById(data));
-}

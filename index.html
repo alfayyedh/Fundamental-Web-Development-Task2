@@ -43,11 +43,11 @@
 
     <!-- Content -->
     <section class="container">
-      <div class="row mt-5 mb-3">
-          <div class="col-2 text-center">
+      <div class="d-flex mt-5 mb-3">
+          <div class="text-center">
               <img src="https://img.freepik.com/free-photo/handsome-young-man-with-arms-crossed-white-background_23-2148222620.jpg?w=740&t=st=1706978178~exp=1706978778~hmac=7ae8a663f09c1e079cca7e4d2b3461d6e30783f42cf08425cc7ed8b460058109" alt="Person Picture" width="150" height="150">
           </div>
-          <div class="col-10 ">
+          <div class="p-2 flex-grow-1">
               <h2>Hello,</h2>
               <p>Selamat datang di blog portofolio Surya, seorang web developer berbakat yang
               menciptakan pengalaman digital yang menarik dan fungsional. Dengan keahlian
@@ -55,7 +55,7 @@
               pemikiran yang mencerminkan dedikasinya terhadap industri teknologi.</p>
           </div>
       </div>
-      <div class="col-2 d-flex justify-content-center">
+      <div class="text-center" style="width: 150px;">
           <button 
               class="btn btn-success px-5"
               data-bs-toggle="modal"
@@ -85,7 +85,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modal-add-label">Add Task</h1>
+            <h1 class="modal-title fs-5" id="modal-add-label">Add Portofolio</h1>
             <button
               type="button"
               class="btn-close"
@@ -134,66 +134,6 @@
     </div>
     <!-- End Modal Add -->
 
-    <!-- Start Modal Edit -->
-    <div
-      class="modal fade"
-      id="modal-edit"
-      tabindex="-1"
-      aria-labelledby="modal-edit-label"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modal-edit-label">Edit Task</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="edit-form-title" class="form-label">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="edit-form-title"
-                placeholder="Title"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="edit-form-description" class="form-label"
-                >Description</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="edit-form-description"
-                placeholder="Description"
-                required
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary" id="edit-btn">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Modal Edit -->
-
     <!-- Start Modal Delete -->
     <div
       class="modal fade"
@@ -206,7 +146,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="modal-delete-label">
-              Delete Task
+              Delete Portofolio
             </h1>
             <button
               type="button"
@@ -217,26 +157,8 @@
           </div>
           <div class="modal-body">
             <div class="mb-3">
-              <label for="delete-form-title" class="form-label">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="delete-form-title"
-                placeholder="Title"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="delete-form-description" class="form-label"
-                >Description</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="delete-form-description"
-                placeholder="Description"
-                required
-              />
+              <p for="delete-form-title" class="form-label">Perhatian!!!<br>
+                Apakah anda yakin menghapus data ini?</p>
             </div>
           </div>
           <div class="modal-footer">
